@@ -13,7 +13,8 @@
         }
     ],
     "require": {
-
+      "laravel/socialite": "~2.0",
+      "laravelrus/localized-carbon": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "~5.0",
