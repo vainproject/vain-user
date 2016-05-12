@@ -2,9 +2,7 @@
 
 namespace Modules\User\Auth\Access\Contracts;
 
-use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-
-interface GuestInterface extends AuthorizableContract
+interface GuestInterface extends UserInterface
 {
     /**
      * Determine if the entity does not have a given ability.
