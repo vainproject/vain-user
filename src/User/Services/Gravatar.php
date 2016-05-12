@@ -136,6 +136,6 @@ class Gravatar
     {
         $hash = md5(strtolower(trim($email)));
 
-        return sprintf('http://www.gravatar.com/avatar/%s?s=%d&d=%s&r=%s', $hash, $this->getSize(), $this->getDefault(), $this->getRating());
+        return sprintf('https://www.gravatar.com/avatar/%s?s=%d&d=%s&r=%s', $hash, $this->getSize(), $this->getDefault(), $this->getRating());
     }
 }
