@@ -4,8 +4,8 @@ namespace Modules\User\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
-use Vain\Packages\Access\Contracts\PermissionInterface as PermissionContract;
-use Vain\Packages\Access\Traits\PermissionTrait;
+use Modules\User\Auth\Access\Contracts\PermissionInterface as PermissionContract;
+use Modules\User\Auth\Access\Traits\PermissionTrait;
 
 class Permission extends Model implements PermissionContract
 {

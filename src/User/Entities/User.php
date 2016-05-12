@@ -11,8 +11,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
 use Modules\User\Observers\UserObserver;
-use Vain\Packages\Access\Contracts\UserInterface as UserContract;
-use Vain\Packages\Access\Traits\UserTrait;
+use Modules\User\Auth\Access\Contracts\UserInterface as UserContract;
+use Modules\User\Auth\Access\Traits\UserTrait;
 
 class User extends Model implements UserContract, AuthenticatableContract, CanResetPasswordContract
 {

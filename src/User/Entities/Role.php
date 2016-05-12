@@ -4,8 +4,8 @@ namespace Modules\User\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
-use Vain\Packages\Access\Contracts\RoleInterface as RoleContract;
-use Vain\Packages\Access\Traits\RoleTrait;
+use Modules\User\Auth\Access\Contracts\RoleInterface as RoleContract;
+use Modules\User\Auth\Access\Traits\RoleTrait;
 
 class Role extends Model implements RoleContract
 {
