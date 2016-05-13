@@ -7,8 +7,9 @@ interface GuestInterface extends UserInterface
     /**
      * Determine if the entity does not have a given ability.
      *
-     * @param  string  $ability
-     * @param  array|mixed  $arguments
+     * @param string      $ability
+     * @param array|mixed $arguments
+     *
      * @return bool
      */
     public function cant($ability, $arguments = []);
@@ -16,8 +17,9 @@ interface GuestInterface extends UserInterface
     /**
      * Determine if the entity does not have a given ability.
      *
-     * @param  string  $ability
-     * @param  array|mixed  $arguments
+     * @param string      $ability
+     * @param array|mixed $arguments
+     *
      * @return bool
      */
     public function cannot($ability, $arguments = []);

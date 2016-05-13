@@ -70,19 +70,19 @@ class AuthServiceProvider extends ServiceProvider
 
     /**
      * Register a guest representing user entity
-     * which is not persistable
+     * which is not persistable.
      */
     protected function registerGuest()
     {
-        $this->app->bind('guest.roles', function($app) {
+        $this->app->bind('guest.roles', function ($app) {
             return ['guest'];
         });
 
-        $this->app->bind('guest.abilities', function($app) {
+        $this->app->bind('guest.abilities', function ($app) {
             return ['*.show'];
         });
 
-        $this->app->bind('guest', function($app) {
+        $this->app->bind('guest', function ($app) {
             return new Guest($app['guest.roles'], $app['guest.abilities']);
         });
     }
