@@ -52,7 +52,7 @@ trait GuestTrait
             return collect($this->roles)->contains($name);
         }
 
-        return (bool) $name->intersect($this->roles)->count();
+        return (bool)collect($this->roles)->intersect($name->lists('name'))->count();
     }
 
     /**

@@ -13,6 +13,7 @@ class Guest implements GuestContract
     /**
      * Guest constructor.
      *
+     * @param array $roles
      * @param array $abilities
      */
     public function __construct($roles = [], $abilities = [])
