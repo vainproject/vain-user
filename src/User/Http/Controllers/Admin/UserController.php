@@ -129,7 +129,7 @@ class UserController extends Controller
         /* @var User $user */
         $success = User::find($id)->delete();
 
-        if ( ! $success) {
+        if (!$success) {
             if ($this->request->ajax()) {
                 $session->flash('errors', new MessageBag([trans('user::user.delete.relations')]));
 

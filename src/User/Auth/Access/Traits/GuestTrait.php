@@ -9,14 +9,14 @@ trait GuestTrait
     use Authorizable;
 
     /**
-     * Roles which the guest user posesses
+     * Roles which the guest user posesses.
      *
      * @var array
      */
     protected $roles;
 
     /**
-     * Abilities which the guest user posesses
+     * Abilities which the guest user posesses.
      *
      * @var array
      */
@@ -25,20 +25,22 @@ trait GuestTrait
     /**
      * Determine if the entity has a given ability.
      *
-     * @param  string $ability
-     * @param  array|mixed $arguments
+     * @param string      $ability
+     * @param array|mixed $arguments
+     *
      * @return bool
      */
     public function can($ability, $arguments = [])
     {
         foreach ($this->abilities as $check) {
-            if (fnmatch($check, $ability))
+            if (fnmatch($check, $ability)) {
                 return true;
+            }
         }
 
         return false;
     }
-    
+
     /**
      * Checks if the user has a role by its name.
      *
@@ -52,7 +54,7 @@ trait GuestTrait
             return collect($this->roles)->contains($name);
         }
 
-        return (bool)collect($this->roles)->intersect($name->lists('name'))->count();
+        return (bool) collect($this->roles)->intersect($name->lists('name'))->count();
     }
 
     /**
@@ -62,7 +64,7 @@ trait GuestTrait
      */
     public function attachRole($role)
     {
-        $this->attachRoles((array)$role);
+        $this->attachRoles((array) $role);
     }
 
     /**
@@ -72,7 +74,7 @@ trait GuestTrait
      */
     public function detachRole($role)
     {
-        $this->detachRoles((array)$role);
+        $this->detachRoles((array) $role);
     }
 
     /**

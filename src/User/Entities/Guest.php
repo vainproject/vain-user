@@ -22,27 +22,28 @@ class Guest implements GuestContract
         $this->abilities = $abilities;
     }
 
-
     /**
      * Many-to-Many relations with Role.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      * @throws GuestImmutableException
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function roles()
     {
-        throw new GuestImmutableException("you can not modify the guest object nor use any eloquent related methods");
+        throw new GuestImmutableException('you can not modify the guest object nor use any eloquent related methods');
     }
 
     /**
      * Save the inputted roles.
      *
      * @param mixed $inputRoles
+     *
      * @throws GuestImmutableException
      */
     public function saveRoles($inputRoles)
     {
-        throw new GuestImmutableException("you can not modify the guest object nor use any eloquent related methods");
+        throw new GuestImmutableException('you can not modify the guest object nor use any eloquent related methods');
     }
 
     /**

@@ -2,12 +2,12 @@
 
 namespace Modules\User\Observers;
 
-class UserObserver {
-
+class UserObserver
+{
     protected $relations = [
         'sites',
         'posts',
-        'comments'
+        'comments',
     ];
 
     /**
@@ -16,6 +16,7 @@ class UserObserver {
      * manually remove all relations for now.
      *
      * @param $model
+     *
      * @return bool
      */
     public function deleting($model)
@@ -27,5 +28,4 @@ class UserObserver {
             }
         }
     }
-
 }

@@ -10,9 +10,9 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
-use Modules\User\Observers\UserObserver;
 use Modules\User\Auth\Access\Contracts\UserInterface as UserContract;
 use Modules\User\Auth\Access\Traits\UserTrait;
+use Modules\User\Observers\UserObserver;
 
 class User extends Model implements UserContract, AuthenticatableContract, CanResetPasswordContract
 {
@@ -72,19 +72,21 @@ class User extends Model implements UserContract, AuthenticatableContract, CanRe
     {
         parent::boot();
 
-        User::observe(UserObserver::class);
+        self::observe(UserObserver::class);
     }
 
     /**
      * created static pages.
      *
      * todo make site module trait to include in user entity
-     * @return mixed
+     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function sites()
     {
-        if ( ! class_exists(\Modules\Site\Entities\Page::class, false)) {
+        if (!class_exists(\Modules\Site\Entities\Page::class, false)) {
             throw new \Exception('in order to use User::sites() you have to install the \'vain-sites\' module');
         }
 
@@ -92,13 +94,15 @@ class User extends Model implements UserContract, AuthenticatableContract, CanRe
     }
 
     /**
-     * todo make blog module trait to include in user entity
-     * @return mixed
+     * todo make blog module trait to include in user entity.
+     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function posts()
     {
-        if ( ! class_exists(\Modules\Blog\Entities\Post::class, false)) {
+        if (!class_exists(\Modules\Blog\Entities\Post::class, false)) {
             throw new \Exception('in order to use User::posts() you have to install the \'vain-blog\' module');
         }
 
@@ -106,13 +110,15 @@ class User extends Model implements UserContract, AuthenticatableContract, CanRe
     }
 
     /**
-     * todo make blog module trait to include in user entity
-     * @return mixed
+     * todo make blog module trait to include in user entity.
+     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function comments()
     {
-        if ( ! class_exists(\Modules\Blog\Entities\Comment::class, false)) {
+        if (!class_exists(\Modules\Blog\Entities\Comment::class, false)) {
             throw new \Exception('in order to use User::comments() you have to install the \'vain-blog\' module');
         }
 
