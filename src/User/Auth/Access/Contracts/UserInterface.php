@@ -58,4 +58,13 @@ interface UserInterface extends AuthorizableContract
      * @param mixed $roles
      */
     public function detachRoles($roles);
+
+    /**
+     * Checks for the property user_id and compares it to the id of this user object.
+     *
+     * @param object $object
+     *
+     * @return bool
+     */
+    public function owns($object);
 }

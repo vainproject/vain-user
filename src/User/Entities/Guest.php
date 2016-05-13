@@ -44,4 +44,16 @@ class Guest implements GuestContract
     {
         throw new GuestImmutableException("you can not modify the guest object nor use any eloquent related methods");
     }
+
+    /**
+     * Checks for the property user_id and compares it to the id of this user object.
+     *
+     * @param object $object
+     *
+     * @return bool
+     */
+    public function owns($object)
+    {
+        return false;
+    }
 }
