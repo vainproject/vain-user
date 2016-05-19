@@ -3,26 +3,21 @@
  * Authentication
  */
 Route::group(['namespace' => 'Auth'], function () {
-    // default auth
-    Route::controllers([
-        'auth'     => 'AuthController',
-        'password' => 'PasswordController',
-    ]);
 
-    Route::controller('auth', 'AuthController', [
-        'getRegister'  => 'user.auth.register.get',
-        'postRegister' => 'user.auth.register.post',
-        'getLogin'     => 'user.auth.login.get',
-        'postLogin'    => 'user.auth.login.post',
-        'getLogout'    => 'user.auth.logout',
-    ]);
+    Route::group(['prefix' => 'auth'], function () {
+        Route::get('register', ['as' => 'user.auth.register.get', 'uses' => 'AuthController@getRegister']);
+        Route::post('register', ['as' => 'user.auth.register.post', 'uses' => 'AuthController@postRegister']);
+        Route::get('login', ['as' => 'user.auth.login.get', 'uses' => 'AuthController@getLogin']);
+        Route::post('login', ['as' => 'user.auth.login.post', 'uses' => 'AuthController@postLogin']);
+        Route::get('logout', ['as' => 'user.auth.logout', 'uses' => 'AuthController@getLogout']);
+    });
 
-    Route::controller('password', 'PasswordController', [
-        'getEmail'  => 'user.password.email.get',
-        'postEmail' => 'user.password.email.post',
-        'getReset'  => 'user.password.reset.get',
-        'postReset' => 'user.password.reset.post',
-    ]);
+    Route::group(['prefix' => 'password'], function () {
+        Route::get('email', ['as' => 'user.password.email.get', 'uses' => 'PasswordController@getEmail']);
+        Route::post('email', ['as' => 'user.password.email.post', 'uses' => 'PasswordController@postEmail']);
+        Route::get('reset/{token}', ['as' => 'user.password.reset.get', 'uses' => 'PasswordController@getReset']);
+        Route::post('reset', ['as' => 'user.password.reset.post', 'uses' => 'PasswordController@postReset']);
+    });
 
     if (config('services.socialite.enable', false)) {
         // socialite
