@@ -13,9 +13,9 @@ Route::group(['namespace' => 'Auth'], function () {
     });
 
     Route::group(['prefix' => 'password'], function () {
-        Route::post('email', ['as' => 'user.password.email.get', 'uses' => 'PasswordController@getEmail']);
+        Route::get('email', ['as' => 'user.password.email.get', 'uses' => 'PasswordController@getEmail']);
         Route::post('email', ['as' => 'user.password.email.post', 'uses' => 'PasswordController@postEmail']);
-        Route::post('reset', ['as' => 'user.password.reset.get', 'uses' => 'PasswordController@getReset']);
+        Route::get('reset/{token}', ['as' => 'user.password.reset.get', 'uses' => 'PasswordController@getReset']);
         Route::post('reset', ['as' => 'user.password.reset.post', 'uses' => 'PasswordController@postReset']);
     });
 
