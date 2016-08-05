@@ -8,16 +8,31 @@ use Illuminate\Session\Store;
 use Modules\User\Entities\User;
 use Modules\User\Services\Updater;
 
+/**
+ * Class UserController
+ * @package Modules\User\Http\Controllers
+ */
 class UserController extends Controller
 {
+    /**
+     * @var Updater
+     */
     protected $updater;
 
-    public function __construct(Updater $updater)
+    /**
+     * UserController constructor.
+     * @param Updater $updater
+     */
+    public function __construct( Updater $updater)
     {
         $this->updater = $updater;
     }
 
-    public function show($id)
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function show( $id)
     {
         /** @var User $user */
         $user = User::find($id);
@@ -26,7 +41,11 @@ class UserController extends Controller
             ->with('user', $user);
     }
 
-    public function edit(Request $request)
+    /**
+     * @param Request $request
+     * @return mixed
+     */
+    public function edit( Request $request)
     {
         /** @var User $user */
         $user = $request->user();
@@ -43,7 +62,12 @@ class UserController extends Controller
             ->with(['user' => $user, 'genders' => $genders, 'locales' => $locales]);
     }
 
-    public function update(Request $request, Store $session)
+    /**
+     * @param Request $request
+     * @param Store $session
+     * @return mixed
+     */
+    public function update( Request $request, Store $session)
     {
         $validator = $this->updater->validator($request->user(), $request->all());
 

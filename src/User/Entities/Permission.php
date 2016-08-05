@@ -7,6 +7,10 @@ use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
 use Modules\User\Auth\Access\Contracts\PermissionInterface as PermissionContract;
 use Modules\User\Auth\Access\Traits\PermissionTrait;
 
+/**
+ * Class Permission
+ * @package Modules\User\Entities
+ */
 class Permission extends Model implements PermissionContract
 {
     use PermissionTrait, LocalizedEloquentTrait;

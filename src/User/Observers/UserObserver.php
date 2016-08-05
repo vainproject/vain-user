@@ -2,8 +2,15 @@
 
 namespace Modules\User\Observers;
 
+/**
+ * Class UserObserver
+ * @package Modules\User\Observers
+ */
 class UserObserver
 {
+    /**
+     * @var array
+     */
     protected $relations = [
         'sites',
         'posts',

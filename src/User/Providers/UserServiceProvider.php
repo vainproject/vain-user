@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class UserServiceProvider
+ * @package Modules\User\Providers
+ */
 class UserServiceProvider extends ServiceProvider
 {
     /**

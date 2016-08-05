@@ -5,6 +5,10 @@ namespace Modules\User\Http\Middleware;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
+/**
+ * Class TrackUserActivity
+ * @package Modules\User\Http\Middleware
+ */
 class TrackUserActivity
 {
     /**

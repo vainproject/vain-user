@@ -5,6 +5,10 @@ namespace Modules\User\Providers;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
 
+/**
+ * Class RouteServiceProvider
+ * @package Modules\User\Providers
+ */
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -26,8 +30,6 @@ class RouteServiceProvider extends ServiceProvider
     public function boot(Router $router)
     {
         parent::boot($router);
-
-        //
     }
 
     /**

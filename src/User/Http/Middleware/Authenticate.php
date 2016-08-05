@@ -5,6 +5,10 @@ namespace Modules\User\Http\Middleware;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
+/**
+ * Class Authenticate
+ * @package Modules\User\Http\Middleware
+ */
 class Authenticate
 {
     /**

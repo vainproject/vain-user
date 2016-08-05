@@ -6,6 +6,10 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class RoleFormRequest
+ * @package Modules\User\Http\Requests
+ */
 class RoleFormRequest extends FormRequest
 {
     /**
@@ -32,12 +36,18 @@ class RoleFormRequest extends FormRequest
         return Auth::check();
     }
 
+    /**
+     *
+     */
     protected function failedAuthorization()
     {
         parent::failedAuthorization();
     }
 
-    protected function failedValidation(Validator $validator)
+    /**
+     * @param Validator $validator
+     */
+    protected function failedValidation( Validator $validator)
     {
         if ($this->ajax()) {
             $this->session()->flashInput($this->all());

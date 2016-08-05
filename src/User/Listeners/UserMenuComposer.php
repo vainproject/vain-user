@@ -4,6 +4,10 @@ namespace Modules\User\Listeners;
 
 use Vain\Events\BackendMenuCreated;
 
+/**
+ * Class UserMenuComposer
+ * @package Modules\User\Listeners
+ */
 class UserMenuComposer
 {
     /**

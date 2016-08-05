@@ -2,14 +2,18 @@
 
 namespace Modules\User\Providers;
 
+use PDOException;
 use Illuminate\Auth\Access\Gate;
+use Modules\User\Entities\Guest;
+use Illuminate\Support\Facades\Log;
+use Modules\User\Entities\Permission;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Log;
-use Modules\User\Entities\Guest;
-use Modules\User\Entities\Permission;
-use PDOException;
 
+/**
+ * Class AuthServiceProvider
+ * @package Modules\User\Providers
+ */
 class AuthServiceProvider extends ServiceProvider
 {
     /**

@@ -9,6 +9,10 @@ use Modules\User\Entities\Permission;
 use Modules\User\Entities\Role;
 use Modules\User\Entities\User;
 
+/**
+ * Class UserTableSeeder
+ * @package Modules\User\Database\Seeders
+ */
 class UserTableSeeder extends Seeder
 {
     /**

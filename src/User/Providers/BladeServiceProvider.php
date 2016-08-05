@@ -5,8 +5,15 @@ namespace Modules\User\Providers;
 use Blade;
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class BladeServiceProvider
+ * @package Modules\User\Providers
+ */
 class BladeServiceProvider extends ServiceProvider
 {
+    /**
+     *
+     */
     public function boot()
     {
         Blade::directive('userbadge', function ($expression) {
@@ -15,8 +22,11 @@ class BladeServiceProvider extends ServiceProvider
         });
     }
 
+    /**
+     *
+     */
     public function register()
     {
-        //
+        // todo: remove?
     }
 }

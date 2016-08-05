@@ -14,6 +14,10 @@ use Modules\User\Auth\Access\Contracts\UserInterface as UserContract;
 use Modules\User\Auth\Access\Traits\UserTrait;
 use Modules\User\Observers\UserObserver;
 
+/**
+ * Class User
+ * @package Modules\User\Entities
+ */
 class User extends Model implements UserContract, AuthenticatableContract, CanResetPasswordContract
 {
     use UserTrait, Authenticatable, CanResetPassword, SoftDeletes, LocalizedEloquentTrait;
@@ -34,24 +38,6 @@ class User extends Model implements UserContract, AuthenticatableContract, CanRe
         'name',
         'email',
         'password',
-        'birthday_at',
-        'locale',
-        'gender',
-        'city',
-        'about',
-        'profession',
-        'hobbies',
-        'homepage',
-        'skype',
-        'facebook',
-        'twitter',
-        'main_character',
-        'main_guild',
-        'favorite_race',
-        'favorite_class',
-        'favorite_spec',
-        'favorite_instance',
-        'favorite_battleground',
     ];
 
     /**
@@ -66,8 +52,11 @@ class User extends Model implements UserContract, AuthenticatableContract, CanRe
      *
      * @var array
      */
-    protected $dates = ['deleted_at', 'birthday_at', 'last_active_at'];
+    protected $dates = ['deleted_at', 'last_active_at'];
 
+    /**
+     *
+     */
     public static function boot()
     {
         parent::boot();

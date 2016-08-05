@@ -2,6 +2,7 @@
 
 namespace Modules\User\Http\Controllers\Auth;
 
+use Socialize;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\One\User as OneUser;
@@ -44,7 +45,7 @@ class SocialController extends Controller
             throw new HttpException(500, 'provider necessary');
         }
 
-        return \Socialize::with($provider)->redirect();
+        return Socialize::with($provider)->redirect();
     }
 
     /**
@@ -63,7 +64,7 @@ class SocialController extends Controller
         }
 
         /** @var OneUser|TwoUser $data */
-        $data = \Socialize::with($provider)->user();
+        $data = Socialize::with($provider)->user();
 
         // do we got the user already?
         $user = User::where('email', $data->getEmail())
@@ -74,7 +75,8 @@ class SocialController extends Controller
             $user = User::create([
                 'name'     => $data->getName(),
                 'email'    => $data->getEmail(),
-                'password' => '', ]);
+                'password' => '',
+            ]);
         }
 
         // login as db user

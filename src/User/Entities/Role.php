@@ -7,6 +7,10 @@ use Laravelrus\LocalizedCarbon\Traits\LocalizedEloquentTrait;
 use Modules\User\Auth\Access\Contracts\RoleInterface as RoleContract;
 use Modules\User\Auth\Access\Traits\RoleTrait;
 
+/**
+ * Class Role
+ * @package Modules\User\Entities
+ */
 class Role extends Model implements RoleContract
 {
     use RoleTrait, LocalizedEloquentTrait;
@@ -18,7 +22,11 @@ class Role extends Model implements RoleContract
      */
     protected $fillable = ['name', 'display_name', 'description', 'color', 'order'];
 
-    public function scopeOrdered($query)
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopeOrdered( $query)
     {
         return $query->orderBy('order', 'ASC');
     }

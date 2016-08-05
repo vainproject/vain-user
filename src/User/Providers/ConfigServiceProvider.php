@@ -4,6 +4,10 @@ namespace Modules\User\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class ConfigServiceProvider
+ * @package Modules\User\Providers
+ */
 class ConfigServiceProvider extends ServiceProvider
 {
     /**

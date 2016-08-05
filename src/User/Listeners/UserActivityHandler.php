@@ -6,6 +6,10 @@ use Illuminate\View\View;
 use Knp\Menu\MenuItem;
 use Modules\User\Entities\User;
 
+/**
+ * Class UserActivityHandler
+ * @package Modules\User\Listeners
+ */
 class UserActivityHandler
 {
     /**
@@ -54,7 +58,6 @@ class UserActivityHandler
     public function subscribe($events)
     {
         $events->listen('auth.login', 'Modules\User\Listeners\UserActivityHandler@onUserLogin');
-
         $events->listen('auth.logout', 'Modules\User\Listeners\UserActivityHandler@onUserLogout');
     }
 }

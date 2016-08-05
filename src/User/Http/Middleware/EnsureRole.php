@@ -2,8 +2,13 @@
 
 namespace Modules\User\Http\Middleware;
 
+use Auth;
 use Closure;
 
+/**
+ * Class EnsureRole
+ * @package Modules\User\Http\Middleware
+ */
 class EnsureRole
 {
     /**
@@ -17,7 +22,7 @@ class EnsureRole
      */
     public function handle($request, Closure $next, $value)
     {
-        if (!\Auth::user()->hasRole($value)) {
+        if (!Auth::user()->hasRole($value)) {
             app()->abort(403, 'Missing role \''.$value.'\'');
         }
 

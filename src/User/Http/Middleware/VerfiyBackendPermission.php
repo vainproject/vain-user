@@ -2,8 +2,13 @@
 
 namespace Modules\User\Http\Middleware;
 
+use Gate;
 use Closure;
 
+/**
+ * Class VerfiyBackendPermission
+ * @package Modules\User\Http\Middleware
+ */
 class VerfiyBackendPermission
 {
     /**
@@ -16,7 +21,7 @@ class VerfiyBackendPermission
      */
     public function handle($request, Closure $next)
     {
-        if (\Gate::denies('app.admin.show')) {
+        if (Gate::denies('app.admin.show')) {
             if ($request->ajax()) {
                 return response('Forbidden.', 403);
             } else {

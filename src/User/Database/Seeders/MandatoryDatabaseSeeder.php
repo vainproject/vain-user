@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 use Modules\User\Entities\Permission;
 use Modules\User\Entities\Role;
 
+/**
+ * Class MandatoryDatabaseSeeder
+ * @package Modules\User\Database\Seeders
+ */
 class MandatoryDatabaseSeeder extends Seeder
 {
     /**
@@ -27,8 +31,15 @@ class MandatoryDatabaseSeeder extends Seeder
     }
 }
 
+/**
+ * Class PermissionPermissionTableSeeder
+ * @package Modules\User\Database\Seeders
+ */
 class PermissionPermissionTableSeeder extends Seeder
 {
+    /**
+     *
+     */
     public function run()
     {
         // general admin view permission, though the user component
@@ -49,8 +60,15 @@ class PermissionPermissionTableSeeder extends Seeder
     }
 }
 
+/**
+ * Class RolePermissionTableSeeder
+ * @package Modules\User\Database\Seeders
+ */
 class RolePermissionTableSeeder extends Seeder
 {
+    /**
+     *
+     */
     public function run()
     {
         Permission::where('name', 'user.role.show')->delete();
@@ -83,8 +101,15 @@ class RolePermissionTableSeeder extends Seeder
     }
 }
 
+/**
+ * Class UserPermissionTableSeeder
+ * @package Modules\User\Database\Seeders
+ */
 class UserPermissionTableSeeder extends Seeder
 {
+    /**
+     *
+     */
     public function run()
     {
         Permission::where('name', 'user.user.show')->delete();
@@ -117,8 +142,15 @@ class UserPermissionTableSeeder extends Seeder
     }
 }
 
+/**
+ * Class RoleTableSeeder
+ * @package Modules\User\Database\Seeders
+ */
 class RoleTableSeeder extends Seeder
 {
+    /**
+     *
+     */
     public function run()
     {
         DB::table('roles')->delete();

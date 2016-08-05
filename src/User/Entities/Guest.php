@@ -6,6 +6,10 @@ use Modules\User\Auth\Access\Contracts\GuestInterface as GuestContract;
 use Modules\User\Auth\Access\Exceptions\GuestImmutableException;
 use Modules\User\Auth\Access\Traits\GuestTrait;
 
+/**
+ * Class Guest
+ * @package Modules\User\Entities
+ */
 class Guest implements GuestContract
 {
     use GuestTrait;

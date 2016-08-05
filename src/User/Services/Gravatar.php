@@ -2,6 +2,10 @@
 
 namespace Modules\User\Services;
 
+/**
+ * Class Gravatar
+ * @package Modules\User\Services
+ */
 class Gravatar
 {
     /* do not load any image if none is associated with the email hash,instead return an HTTP 404 (File Not Found) response */
@@ -57,6 +61,9 @@ class Gravatar
      */
     protected $rating;
 
+    /**
+     * Gravatar constructor.
+     */
     public function __construct()
     {
         $this->size = 80;

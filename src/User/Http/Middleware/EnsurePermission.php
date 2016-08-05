@@ -2,8 +2,13 @@
 
 namespace Modules\User\Http\Middleware;
 
+use Gate;
 use Closure;
 
+/**
+ * Class EnsurePermission
+ * @package Modules\User\Http\Middleware
+ */
 class EnsurePermission
 {
     /**
@@ -17,7 +22,7 @@ class EnsurePermission
      */
     public function handle($request, Closure $next, $value)
     {
-        if (\Gate::denies($value)) {
+        if (Gate::denies($value)) {
             app()->abort(403, 'Missing permission \''.$value.'\'');
         }
 

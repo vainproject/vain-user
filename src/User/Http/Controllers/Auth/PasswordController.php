@@ -6,6 +6,10 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Vain\Http\Controllers\Controller;
 
+/**
+ * Class PasswordController
+ * @package Modules\User\Http\Controllers\Auth
+ */
 class PasswordController extends Controller
 {
     /*
@@ -29,12 +33,19 @@ class PasswordController extends Controller
         $this->middleware('guest');
     }
 
+    /**
+     * @return mixed
+     */
     public function getEmail()
     {
         return view('user::auth.password');
     }
 
-    public function getReset($token = null)
+    /**
+     * @param null $token
+     * @return mixed
+     */
+    public function getReset( $token = null)
     {
         if (is_null($token)) {
             throw new NotFoundHttpException();
